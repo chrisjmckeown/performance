@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('./config/passport');
 const exphbs = require('express-handlebars');
+const compression = require('compression');
 // Setting the models
 const db = require('./models');
 
@@ -11,6 +12,8 @@ const PORT = process.env.PORT || 8080;
 
 // Creating express app
 const app = express();
+
+app.use(compression());
 
 // Parse application body as JSON
 app.use(express.urlencoded({extended: true}));
