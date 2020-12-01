@@ -1,0 +1,32 @@
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <legend class="uk-legend">Edit {{this.dataValues.name}} Category</legend>
+            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="category-name">Name:</label>
+                <input type="text" class="uk-input category-name" id="category-name" name="name"
+                  value="{{this.dataValues.name}}">
+              </div>
+              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Category</button>
+            </form>
+            <div style="display: none" id="alert" role="alert">
+              <span class="msg"></span>
+            </div>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
+    </div>
+  </main>
+  {{> footer}}
+</div>
+<!-- App scripts and css-->
+<script src="/js/admin-categories.js"></script>

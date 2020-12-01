@@ -1,0 +1,69 @@
+<div class="wrapper">
+    {{> header}}
+    <main class="main">
+        <div class="uk-container">
+            {{> navigation/primary-nav}}
+            <div class="uk-grid">
+
+                <div class="uk-width-4-5@m">
+                    <div class="uk-grid">
+                        <div class="uk-width-1-5 uk-float-left">
+                            <div class="playlist-aside">
+                                <h4 class="cookBook">Contents</h4>
+                                <button class="uk-button uk-button-default btn-fixed-size">Create a List</button>
+                                <form action="/api/play-lists-in-my-list">
+                                    <input class="uk-button uk-button-default btn-fixed-size" type="submit"
+                                        value="My Playlists" />
+                                </form>
+                                <form action="/api/recipes-in-my-list">
+                                    <input class="uk-button uk-button-default btn-fixed-size" type="submit"
+                                        value="My Recipes" />
+                                </form>
+                                <form action="/api/all-recipes-a-list">
+                                    <input class="uk-button uk-button-default btn-fixed-size" type="submit"
+                                        value="All Recipes" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="uk-width-4-5 uk-float-left cookBook">
+                            <h1>My CookBook</h1>
+                            <h3>Create your own lists of recipe's to add to your specialised CookBook!</h3>
+                            <h5>Vegetarian faves... Quick Fam Dinners... Friendly Gatherings... Fave Salads</h5>
+                        </div>
+                        <div class="uk-width-4-5 uk-float-right">
+                            <div class="uk-box-shadow-xlarge uk-padding">
+                                <legend class="uk-legend">Manage Playlist</legend>
+                                <p>Add, edit and delete Playlists.</p>
+                                <form class="uk-grid-small create-form" id="create-form">
+                                    <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                                        <div class="uk-width-expand uk-first-column">
+                                            <input type="text" class="uk-input play-list-name" id="play-list-name"
+                                                name="name" placeholder="new playlist name...">
+                                        </div>
+                                        <div class="uk-width-auto">
+                                            <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Add
+                                                Playlist</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <ul class="uk-list uk-list-divider uk-list-striped">
+                                    {{#each PlayList}}
+                                    {{> playlist-row-item}}
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-5@m">
+                    {{> chat}}
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="push"></div>
+    {{> footer}}
+</div>
+<!-- App scripts and css-->
+<script src="/js/admin-play-list.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/playlists.css">
